@@ -1,5 +1,3 @@
-MACHINEID=$(cat ~/.machineid)
-
 export LANG=en_US.UTF-8
 export LC_ALL=en_US.UTF-8
 export EDITOR="vim"
@@ -9,7 +7,7 @@ export LSCOLORS=GxFxCxDxBxegedabagaced
 export HISTCONTROL=ignoreboth:erasedups
 
 alias csi='csi -q'
-[ "$MACHINEID" == laptop-priv ] && alias ls='ls --color=auto'
+[ "$(uname -s)" == "Linux" ] && alias ls='ls --color=auto'
 
 ######################################
 # PATH
@@ -36,14 +34,6 @@ maybe_source() { if [ -e $1 ]; then . $1; fi }
 
 maybe_source $HOME/local/Modules/3.2.10/init/bash
 maybe_source $HOME/.nix-profile/etc/profile.d/nix.sh
-
-######################################
-# OTHER VARIABLES
-
-if [[ "$MACHINEID" == macbook-work ]]; then
-	export JAVA_HOME="/Library/Java/JavaVirtualMachines/jdk1.7.0_51.jdk/Contents/Home/"
-	export JAVA_VERSION=1.7
-fi
 
 ######################################
 # TERMINAL
