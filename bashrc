@@ -7,6 +7,7 @@ export LSCOLORS=GxFxCxDxBxegedabagaced
 export HISTCONTROL=ignoreboth:erasedups
 
 alias csi='csi -q'
+command -v nvim &>/dev/null && alias vim='nvim'
 [ "$(uname -s)" == "Linux" ] && alias ls='ls --color=auto'
 
 ######################################
