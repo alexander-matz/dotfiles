@@ -30,7 +30,7 @@ set modeline
 set modelines=10
 set noswapfile
 set nobackup
-set number
+set nonumber
 set nohlsearch
 set mouse=
 
