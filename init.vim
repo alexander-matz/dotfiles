@@ -57,3 +57,13 @@ au FileType d          setlocal ts=2 sts=2 sw=2 et ai
 
 au BufNewFile,BufReadPost *.ll setlocal filetype=llvm
 au BufNewFile,BufReadPost *.dt setlocal filetype=pug
+
+map <left> <nop>
+map <down> <nop>
+map <up> <nop>
+map <right> <nop>
+
+imap <left> <nop>
+imap <down> <nop>
+imap <up> <nop>
+imap <right> <nop>
