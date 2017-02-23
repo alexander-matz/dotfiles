@@ -66,3 +66,5 @@ prompt() {
 }
 
 [ -t 1 ] && PROMPT_COMMAND=prompt
+
+set -o vi
