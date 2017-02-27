@@ -1,16 +1,4 @@
 ########################################
-# Aliases
-
-[[ $(uname) == Linux ]] && alias ls='ls -hF'
-[[ $(uname) == Darwin ]] && alias ls='ls -hGF'
-alias grep='grep --color=auto'
-alias ll='ls -lh'
-alias la='ls -lah'
-alias less='less --quiet'
-alias df='df -h'
-alias du='du -h'
-
-########################################
 # Options
 
 unsetopt beep
@@ -31,6 +19,7 @@ setopt pushd_ignore_dups
 setopt pushd_silent
 setopt pushd_to_home
 
+export KEYTIMEOUT=1
 export HISTORY=2000
 export SAVEHIST=5000
 export HISTFILE=$HOME/.history
@@ -57,43 +46,22 @@ compinit
 ########################################
 # Key Bindings
 
-bindkey -e # emacs mode
+bindkey -v
 export KEYTIMEOUT=1
-
-bindkey '\e[A' history-beginning-search-backward
-bindkey '\e[B' history-beginning-search-forward
-if [[ $(uname) == Darwin ]]; then
-	bindkey "\e\e[D" backward-word # alt + <-
-	bindkey "\e\e[C" forward-word # alt + ->
-	bindkey '^[[1~' beginning-of-line # pos1
-	bindkey '^[[4~' end-of-line # end
-	# bindkey '^[[5~' # screen up
-	# bindkey '^[[6~' # screen down
-	bindkey '^[[3~' delete-char
-fi
-
-# ctrl-z toggle
-
-ctrlz() {
-	if [[ $#BUFFER -eq 0 ]]; then
-		fg
-		zle redisplay
-	else
-		zle push-input
-	fi
-}
-zle -N ctrlz
-bindkey '^Z' ctrlz
-
-########################################
-# Plugins etc.
-
+bindkey -v '^?' backward-delete-char
 
 ########################################
 # Prompt
 
-autoload -U promptinit && promptinit
 autoload -U colors && colors
 
+prompt() {
+	local ret="%(?..%F{red}%?%f)"
+	local userhost="%U%F{green}%n%f%u@%m"
+	local dir="%U%F{blue}%~%f%u"
 
-PROMPT="[%U%F{green}%n%f@%m %F{blue}%c%f%u]%(?..%F{red}!%?%f)%# "
+	echo "${userhost}: ${dir} $ret\n\$ "
+}
+
+setopt PROMPT_SUBST
+PROMPT='$(prompt)'
