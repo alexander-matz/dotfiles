@@ -52,17 +52,12 @@ styles() {
 tty -s && styles
 
 prompt() {
-	local EXIT="$?"
-	if [ $EXIT != 0 ]; then
-		pexit="${sred}${EXIT}${sclr}"
-	else
-		pexit=""
-	fi
-
+	local EXIT=$?
+	[[ $EXIT != 0 ]] && local retcode="${sred}${EXIT}${sclr}"
 	local userhost="${sul}${sgreen}\u${sclr}@\h${sclr}"
 	local dir="${sul}${sblue}\w${sclr}"
 
-	export PS1="${userhost}: ${dir} $pexit\n\$ "
+	export PS1="${userhost}: ${dir} ${retcode}\n\$ "
 }
 
 [ -t 1 ] && PROMPT_COMMAND=prompt
