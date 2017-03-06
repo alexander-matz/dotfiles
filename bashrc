@@ -7,7 +7,8 @@ export LSCOLORS=GxFxCxDxBxegedabagaced
 export HISTCONTROL=ignoreboth:erasedups
 
 alias csi='csi -q'
-[ "$(uname -s)" == "Linux" ] && alias ls='ls --color=auto'
+[[ "$(uname -s)" == "Linux" ]] && alias ls='ls --color=auto'
+[[ -f ~/bin/vcr.bash ]] && . ~/bin/vcr.bash
 
 ######################################
 # PATH
