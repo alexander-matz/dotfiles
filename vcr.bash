@@ -31,7 +31,7 @@ vcr-abort() {
   __record=""
   echo "[aborted record]" >&2
 }
-
+ 
 vcr-recording() {
   if [[ "$__recording" == "yes" ]]; then
     echo "[recording is in process]" >&2
@@ -120,3 +120,13 @@ vcr-play() {
 }
 
 trap '__preexec_invoke_exec' DEBUG
+
+__record_complete() {
+  local cur=${COMP_WORDS[COMP_CWORD]}
+  local files
+  [[ -d "$__records_dir" ]] && files="$(ls "$__records_dir" | grep "^$cur")"
+  COMPREPLY=( $(compgen -W "$files" -- $cur) )
+}
+complete -F __record_complete vcr-play
+complete -F __record_complete vcr-show
+complete -F __record_complete vcr-delete
