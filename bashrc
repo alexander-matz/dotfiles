@@ -9,6 +9,7 @@ export HISTCONTROL=ignoreboth:erasedups
 alias csi='csi -q'
 [[ "$(uname -s)" == "Linux" ]] && alias ls='ls --color=auto'
 [[ -f ~/bin/vcr.bash ]] && . ~/bin/vcr.bash
+[[ -f ~/.nix-profile/etc/profile.d/nix.sh ]] && alias nix=". ~/.nix-profile/etc/profile.d/nix.sh"
 
 ######################################
 # PATH
@@ -64,3 +65,4 @@ prompt() {
 [ -t 1 ] && PROMPT_COMMAND=prompt
 
 set -o vi
+if [ -e /Users/alexander/.nix-profile/etc/profile.d/nix.sh ]; then . /Users/alexander/.nix-profile/etc/profile.d/nix.sh; fi # added by Nix installer

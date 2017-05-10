@@ -1,7 +1,6 @@
 ; vim: filetype=scheme
 (use parley)
 (use parley-auto-completion)
-(use apropos)
 (use scsh-process)
 
 (let ((old (current-input-port)))
