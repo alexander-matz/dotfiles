@@ -2,6 +2,7 @@
 (use parley)
 (use parley-auto-completion)
 (use scsh-process)
+(use apropos)
 
 (let ((old (current-input-port)))
   (current-input-port (make-parley-port old)))
