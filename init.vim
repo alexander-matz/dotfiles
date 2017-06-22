@@ -8,6 +8,7 @@ set modelines=10
 set noswapfile
 set nobackup
 set nonumber
+set ruler
 set nohlsearch
 set mouse=
 
@@ -33,7 +34,6 @@ Plug 'JuliaEditorSupport/julia-vim'
 Plug 'justinmk/vim-syntax-extra'
 Plug 'alexander-matz/todo.vim'
 
-Plug 'tpope/vim-sensible'
 Plug 'kassio/neoterm'
 Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeTabsToggle' }
 Plug 'jistr/vim-nerdtree-tabs', { 'on': 'NERDTreeTabsToggle' }
@@ -52,8 +52,8 @@ map <Leader> <Plug>(easymotion-prefix)
 au FileType python     setlocal ts=4 sts=4 sw=4 et ai
 au FileType javascript setlocal ts=2 sts=2 sw=2 et ai
 au FileType json       setlocal ts=2 sts=2 sw=2 et ai
-au FileType cpp	       setlocal ts=4 sts=4 sw=4 et ai
-au FileType c	         setlocal ts=4 sts=4 sw=4 et ai
+au FileType cpp	       setlocal ts=2 sts=2 sw=2 et ai
+au FileType c	         setlocal ts=2 sts=2 sw=2 et ai
 au FileType lua        setlocal ts=2 sts=2 sw=2 et ai
 au FileType markdown   setlocal ts=4 sts=4 sw=4 et ai
 au FileType scheme     setlocal ts=2 sts=2 sw=2 et ai
@@ -72,7 +72,7 @@ au BufNewFile,BufReadPost *.dt setlocal filetype=pug
 au BufNewFile,BufReadPost */build.boot setlocal filetype=clojure
 
 """""""""""""""""""""""""""""""""""""""""""""""""""
-" Getting rid of arrow key habits
+" Disable arrow keys
 
 map <left> <nop>
 map <down> <nop>
@@ -83,3 +83,9 @@ imap <left> <nop>
 imap <down> <nop>
 imap <up> <nop>
 imap <right> <nop>
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""
+" Convenience Session wrappers
+
+:command SS mks! .vimsession
+:command LS source .vimsession
