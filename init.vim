@@ -35,9 +35,7 @@ Plug 'justinmk/vim-syntax-extra'
 Plug 'alexander-matz/todo.vim'
 
 Plug 'kassio/neoterm'
-Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeTabsToggle' }
-Plug 'jistr/vim-nerdtree-tabs', { 'on': 'NERDTreeTabsToggle' }
-
+Plug 'tpope/vim-vinegar'
 Plug 'tpope/vim-fugitive'
 Plug 'easymotion/vim-easymotion'
 
