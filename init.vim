@@ -39,6 +39,8 @@ Plug 'tpope/vim-vinegar'
 Plug 'tpope/vim-fugitive'
 Plug 'easymotion/vim-easymotion'
 
+Plug 'roxma/nvim-completion-manager'
+
 Plug 'freeo/vim-kalisi'
 call plug#end()
 
@@ -85,5 +87,7 @@ imap <right> <nop>
 """""""""""""""""""""""""""""""""""""""""""""""""""
 " Convenience Session wrappers
 
-:command SS mks! .vimsession
-:command LS source .vimsession
+if !exists(":SS")
+  :command SS mks! .vimsession
+  :command LS source .vimsession
+endif
