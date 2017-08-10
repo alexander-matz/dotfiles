@@ -32,17 +32,6 @@ unsetopt share_history
 ########################################
 # Completion
 
-#zstyle ':completion:*' matcher-list '' 'm:{a-z}={A-Z}'
-#zstyle ':completion:*' max-errors 3 numeric
-#zstyle ':completion:*' use-compctl false
-#zstyle ':completion:*:descriptions' format '%U%B%d%b%u'
-#zstyle ':completion:*:warnings' format '%BSorry, no result for : %d%b'
-#zstyle ':completion:*' menu no
-#zstyle ':completion:*:killall:*' command 'ps -u $USER -o cmd'
-#
-#autoload -U compinit
-#compinit
-
 setopt autolist
 unsetopt menucomplete
 

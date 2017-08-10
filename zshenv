@@ -2,6 +2,8 @@ export LANG=en_US.UTF-8
 export LC_ALL=en_US.UTF-8
 export EDITOR="vim"
 export VISUAL="vim"
+export CLICOLOR=1
+export LSCOLORS=GxFxCxDxBxegedabagaced
 
 path_add() { for p in $@; do [[ -d "$p" ]] && PATH="$PATH:$p"; done }
 
