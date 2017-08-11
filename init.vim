@@ -5,7 +5,7 @@
 
 set noswapfile
 set nobackup
-set nonumber
+set number
 set ruler
 set modeline
 set modelines=10
@@ -37,11 +37,12 @@ Plug 'JuliaEditorSupport/julia-vim'
 Plug 'justinmk/vim-syntax-extra'
 Plug 'hura/vim-asymptote'
 
-Plug 'kassio/neoterm'
+" workflow
 Plug 'tpope/vim-fugitive'
 Plug 'easymotion/vim-easymotion'
 Plug 'rhysd/vim-grammarous'
 
+" buffer/file browsing etc.
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'jeetsukumaran/vim-buffergator'
 call plug#end()
@@ -57,8 +58,7 @@ if s:uname == "Darwin"
 endif
 
 " NetRW tuning
-" ,- opens
-
+" ,- opens netrw
 let g:netrw_banner=0
 let g:netrw_liststyle=3
 let g:netrw_browse_split=4
@@ -71,7 +71,6 @@ let g:netrw_sort_sequence = '[\/]$,*,\%(' . join(map(split(&suffixes, ','), 'esc
 let g:netrw_list_hide =
   \ join(map(split(&wildignore, ','), '"^".' . s:escape . '. "/\\=$"'), ',') . ',^\.\.\=/\=$' .
   \ (get(g:, 'netrw_list_hide', '')[-strlen(s:dotfiles)-1:-1] ==# s:dotfiles ? ','.s:dotfiles : '')
-
 nmap <leader>- :Vexplore<CR>
 
 """""""""""""""""""""""""""""""""""""""""""""""""""
