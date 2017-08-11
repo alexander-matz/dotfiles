@@ -45,6 +45,7 @@ Plug 'rhysd/vim-grammarous'
 " buffer/file browsing etc.
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'jeetsukumaran/vim-buffergator'
+Plug 'justinmk/vim-dirvish'
 call plug#end()
 
 let mapleader=","
@@ -56,22 +57,6 @@ let s:uname = system("uname -s")
 if s:uname == "Darwin"
   let g:clang_library_path='/Applications/Xcode.app/Contents/Frameworks'
 endif
-
-" NetRW tuning
-" ,- opens netrw
-let g:netrw_banner=0
-let g:netrw_liststyle=3
-let g:netrw_browse_split=4
-let g:netrw_winsize=25
-let g:netrw_hide=1
-" stolen from vim-vinegar
-let s:escape = 'substitute(escape(v:val, ".$~"), "*", ".*", "g")'
-let s:dotfiles = '\(^\|\s\s\)\zs\.\S\+'
-let g:netrw_sort_sequence = '[\/]$,*,\%(' . join(map(split(&suffixes, ','), 'escape(v:val, ".*$~")'), '\|') . '\)[*@]\=$'
-let g:netrw_list_hide =
-  \ join(map(split(&wildignore, ','), '"^".' . s:escape . '. "/\\=$"'), ',') . ',^\.\.\=/\=$' .
-  \ (get(g:, 'netrw_list_hide', '')[-strlen(s:dotfiles)-1:-1] ==# s:dotfiles ? ','.s:dotfiles : '')
-nmap <leader>- :Vexplore<CR>
 
 """""""""""""""""""""""""""""""""""""""""""""""""""
 " Filetype specific settings
