@@ -3,14 +3,16 @@
 """""""""""""""""""""""""""""""""""""""""""""""""""
 " General settings
 
-set modeline
-set modelines=10
 set noswapfile
 set nobackup
 set nonumber
 set ruler
+set modeline
+set modelines=10
 set nohlsearch
 set mouse=
+set hidden
+set smartcase
 
 colors desert
 
@@ -19,12 +21,13 @@ colors desert
 
 call plug#begin()
 " syntax
+Plug 'alexander-matz/todo.vim'
+
 Plug 'wavded/vim-stylus'
 Plug 'tpope/vim-fireplace', { 'for': 'clojure' }
-Plug 'lervag/vimtex', { 'for': 'tex' }
+Plug 'lervag/vimtex', { 'for': ['tex', 'texmf', 'texinfo'] }
 Plug 'luochen1990/rainbow', { 'for': ['clojure', 'scheme', 'lisp']}
 Plug 'leafgarland/typescript-vim'
-Plug 'alexander-matz/nim.vim', { 'for': ['nim']}
 Plug 'rust-lang/rust.vim'
 Plug 'dart-lang/dart-vim-plugin'
 Plug 'isRuslan/vim-es6'
@@ -32,19 +35,18 @@ Plug 'JesseKPhillips/d.vim'
 Plug 'digitaltoad/vim-jade'
 Plug 'JuliaEditorSupport/julia-vim'
 Plug 'justinmk/vim-syntax-extra'
-Plug 'alexander-matz/todo.vim'
 Plug 'hura/vim-asymptote'
 
 Plug 'kassio/neoterm'
-Plug 'tpope/vim-vinegar'
 Plug 'tpope/vim-fugitive'
 Plug 'easymotion/vim-easymotion'
 Plug 'rhysd/vim-grammarous'
 
-Plug 'freeo/vim-kalisi'
+Plug 'ctrlpvim/ctrlp.vim'
+Plug 'jeetsukumaran/vim-buffergator'
 call plug#end()
 
-map <Leader> <Plug>(easymotion-prefix)
+let mapleader=","
 
 """""""""""""""""""""""""""""""""""""""""""""""""""
 " Plugin Settings
@@ -53,6 +55,24 @@ let s:uname = system("uname -s")
 if s:uname == "Darwin"
   let g:clang_library_path='/Applications/Xcode.app/Contents/Frameworks'
 endif
+
+" NetRW tuning
+" ,- opens
+
+let g:netrw_banner=0
+let g:netrw_liststyle=3
+let g:netrw_browse_split=4
+let g:netrw_winsize=25
+let g:netrw_hide=1
+" stolen from vim-vinegar
+let s:escape = 'substitute(escape(v:val, ".$~"), "*", ".*", "g")'
+let s:dotfiles = '\(^\|\s\s\)\zs\.\S\+'
+let g:netrw_sort_sequence = '[\/]$,*,\%(' . join(map(split(&suffixes, ','), 'escape(v:val, ".*$~")'), '\|') . '\)[*@]\=$'
+let g:netrw_list_hide =
+  \ join(map(split(&wildignore, ','), '"^".' . s:escape . '. "/\\=$"'), ',') . ',^\.\.\=/\=$' .
+  \ (get(g:, 'netrw_list_hide', '')[-strlen(s:dotfiles)-1:-1] ==# s:dotfiles ? ','.s:dotfiles : '')
+
+nmap <leader>- :Vexplore<CR>
 
 """""""""""""""""""""""""""""""""""""""""""""""""""
 " Filetype specific settings
