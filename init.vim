@@ -5,7 +5,7 @@
 
 set noswapfile
 set nobackup
-set number
+set nonumber
 set ruler
 set modeline
 set modelines=10
@@ -25,7 +25,7 @@ Plug 'alexander-matz/todo.vim'
 
 Plug 'wavded/vim-stylus'
 Plug 'tpope/vim-fireplace', { 'for': 'clojure' }
-Plug 'lervag/vimtex', { 'for': ['tex', 'texmf', 'texinfo'] }
+Plug 'lervag/vimtex', { 'for': ['tex'] }
 Plug 'luochen1990/rainbow', { 'for': ['clojure', 'scheme', 'lisp']}
 Plug 'leafgarland/typescript-vim'
 Plug 'rust-lang/rust.vim'
@@ -63,6 +63,7 @@ endif
 
 au FileType python     setlocal ts=4 sts=4 sw=4 et ai
 au FileType javascript setlocal ts=2 sts=2 sw=2 et ai
+au FileType typescript setlocal ts=2 sts=2 sw=2 et ai
 au FileType json       setlocal ts=2 sts=2 sw=2 et ai
 au FileType cpp	       setlocal ts=2 sts=2 sw=2 et ai
 au FileType c	         setlocal ts=2 sts=2 sw=2 et ai
@@ -80,8 +81,10 @@ au FileType d          setlocal ts=2 sts=2 sw=2 et ai
 au FileType todo       setlocal ts=2 sts=2 sw=2 et ai tw=79
 au FileType plaintex   setlocal ts=2 sts=2 sw=2 et ai tw=79
 au FileType tex        setlocal ts=2 sts=2 sw=2 et ai tw=79
+au FileType vim        setlocal ts=2 sts=2 sw=2 et ai
 
 au BufNewFile,BufReadPost *.ll setlocal filetype=llvm
+au BufNewFile,BufReadPost *.tex setlocal filetype=tex
 au BufNewFile,BufReadPost *.dt setlocal filetype=pug
 au BufNewFile,BufReadPost */build.boot setlocal filetype=clojure
 
@@ -97,6 +100,10 @@ imap <left> <nop>
 imap <down> <nop>
 imap <up> <nop>
 imap <right> <nop>
+
+let g:buffergator_viewport_split_policy = "B"
+
+nnoremap <leader><Tab> :b#<CR>
 
 """""""""""""""""""""""""""""""""""""""""""""""""""
 " Convenience Session wrappers
