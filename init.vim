@@ -13,6 +13,8 @@ set nohlsearch
 set mouse=
 set hidden
 set smartcase
+set ignorecase
+set hlsearch
 
 colors desert
 
@@ -58,6 +60,8 @@ if s:uname == "Darwin"
   let g:clang_library_path='/Applications/Xcode.app/Contents/Frameworks'
 endif
 
+let g:buffergator_viewport_split_policy = "B"
+
 """""""""""""""""""""""""""""""""""""""""""""""""""
 " Filetype specific settings
 
@@ -101,9 +105,11 @@ imap <down> <nop>
 imap <up> <nop>
 imap <right> <nop>
 
-let g:buffergator_viewport_split_policy = "B"
+"""""""""""""""""""""""""""""""""""""""""""""""""""
+" Neat bindings
 
 nnoremap <leader><Tab> :b#<CR>
+nnoremap <Esc><Esc> :<C-u>nohlsearch<CR>
 
 """""""""""""""""""""""""""""""""""""""""""""""""""
 " Convenience Session wrappers
