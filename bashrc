@@ -9,14 +9,12 @@ export HISTCONTROL=ignoreboth:erasedups
 alias csi='csi -q'
 [[ "$(uname -s)" == "Linux" ]] && alias ls='ls --color=auto'
 [[ -f ~/bin/vcr.bash ]] && . ~/bin/vcr.bash
-[[ -f ~/.nix-profile/etc/profile.d/nix.sh ]] && alias nix=". ~/.nix-profile/etc/profile.d/nix.sh"
 
 ######################################
 # PATH
 
-path_add() { for p in $*; do [[ -d "$p" ]] && PATH="$PATH:$p"; done }
+path_add() { for p in $*; do [[ -d "$p" && ":$PATH:" == *":$p:"* ]] && PATH="$PATH:$p"; done }
 
-PATH=""
 path_add $HOME/bin
 path_add $HOME/local/{sbin,bin}
 path_add /opt/local/{sbin,bin}
@@ -35,7 +33,6 @@ export PATH=${PATH:1}
 maybe_source() { if [ -e $1 ]; then . $1; fi }
 
 maybe_source $HOME/local/Modules/3.2.10/init/bash
-maybe_source $HOME/.nix-profile/etc/profile.d/nix.sh
 
 ######################################
 # TERMINAL
@@ -65,4 +62,3 @@ prompt() {
 [ -t 1 ] && PROMPT_COMMAND=prompt
 
 set -o vi
-if [ -e /Users/alexander/.nix-profile/etc/profile.d/nix.sh ]; then . /Users/alexander/.nix-profile/etc/profile.d/nix.sh; fi # added by Nix installer
