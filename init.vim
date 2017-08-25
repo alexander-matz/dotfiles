@@ -14,7 +14,7 @@ set mouse=
 set hidden
 set smartcase
 set ignorecase
-set hlsearch
+set nohls
 
 colors desert
 
@@ -82,7 +82,7 @@ au FileType haskell    setlocal ts=2 sts=2 sw=2 et ai
 au FileType cabal      setlocal ts=2 sts=2 sw=2 et ai
 au FileType dart       setlocal ts=2 sts=2 sw=2 et ai
 au FileType d          setlocal ts=2 sts=2 sw=2 et ai
-au FileType todo       setlocal ts=2 sts=2 sw=2 et ai tw=79 nohls
+au FileType todo       setlocal ts=2 sts=2 sw=2 et ai tw=79
 au FileType plaintex   setlocal ts=2 sts=2 sw=2 et ai tw=79
 au FileType tex        setlocal ts=2 sts=2 sw=2 et ai tw=79
 au FileType vim        setlocal ts=2 sts=2 sw=2 et ai
