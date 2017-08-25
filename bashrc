@@ -13,7 +13,7 @@ alias csi='csi -q'
 ######################################
 # PATH
 
-path_add() { for p in $*; do [[ -d "$p" && ":$PATH:" == *":$p:"* ]] && PATH="$PATH:$p"; done }
+path_add() { for p in $*; do [[ -d "$p" && ! ":$PATH:" == *":$p:"* ]] && PATH="$PATH:$p"; done }
 
 path_add $HOME/bin
 path_add $HOME/local/{sbin,bin}
