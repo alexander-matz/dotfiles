@@ -71,6 +71,7 @@ au FileType typescript setlocal ts=2 sts=2 sw=2 et ai
 au FileType json       setlocal ts=2 sts=2 sw=2 et ai
 au FileType cpp	       setlocal ts=2 sts=2 sw=2 et ai
 au FileType c	         setlocal ts=2 sts=2 sw=2 et ai
+au FileType cuda       setlocal ts=2 sts=2 sw=2 et ai
 au FileType lua        setlocal ts=2 sts=2 sw=2 et ai
 au FileType markdown   setlocal ts=4 sts=4 sw=4 et ai tw=79
 au FileType scheme     setlocal ts=2 sts=2 sw=2 et ai
