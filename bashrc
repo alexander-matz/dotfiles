@@ -25,7 +25,7 @@ path_add /opt/X11/bin
 path_add /{sbin,bin}
 path_add /usr/games
 path_add /usr/local/games
-export PATH=${PATH:1}
+export PATH=${PATH}
 
 #######################################
 # SOURCING STUFF
