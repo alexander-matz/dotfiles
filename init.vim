@@ -38,6 +38,7 @@ Plug 'digitaltoad/vim-jade'
 Plug 'JuliaEditorSupport/julia-vim'
 Plug 'justinmk/vim-syntax-extra'
 Plug 'hura/vim-asymptote'
+Plug 'posva/vim-vue'
 
 " workflow
 Plug 'tpope/vim-fugitive'
@@ -69,6 +70,7 @@ au FileType python     setlocal ts=4 sts=4 sw=4 et ai
 au FileType javascript setlocal ts=2 sts=2 sw=2 et ai
 au FileType typescript setlocal ts=2 sts=2 sw=2 et ai
 au FileType json       setlocal ts=2 sts=2 sw=2 et ai
+au FileType vue        setlocal ts=2 sts=2 sw=2 et ai
 au FileType cpp	       setlocal ts=2 sts=2 sw=2 et ai
 au FileType c	         setlocal ts=2 sts=2 sw=2 et ai
 au FileType cuda       setlocal ts=2 sts=2 sw=2 et ai
@@ -77,7 +79,7 @@ au FileType markdown   setlocal ts=4 sts=4 sw=4 et ai tw=79
 au FileType scheme     setlocal ts=2 sts=2 sw=2 et ai
 au FileType lisp       setlocal ts=2 sts=2 sw=2 et ai
 au FileType clojure    setlocal et ai
-au FileType go	       setlocal ts=4 sts=4 sw=4 et ai
+au FileType go         setlocal ts=4 sts=4 sw=4 ai
 au FileType html       setlocal ts=2 sts=2 sw=2 et ai
 au FileType haskell    setlocal ts=2 sts=2 sw=2 et ai
 au FileType cabal      setlocal ts=2 sts=2 sw=2 et ai
@@ -111,6 +113,8 @@ imap <right> <nop>
 
 nnoremap <leader><Tab> :b#<CR>
 nnoremap <leader>d :w !diff % -<CR>
+nnoremap <leader>s :syntax sync fromstart<CR>
+nnoremap <leader>l :match ErrorMsg '\%>80v.\+'<CR>
 nnoremap <Esc><Esc> :<C-u>nohlsearch<CR>
 
 """""""""""""""""""""""""""""""""""""""""""""""""""
