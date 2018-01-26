@@ -56,7 +56,7 @@ prompt() {
 	local userhost="${sul}${sgreen}\u${sclr}@\h${sclr}"
 	local dir="${sul}${sblue}\w${sclr}"
 
-	export PS1="${userhost}: ${dir} ${retcode}\n\$ "
+	export PS1="${userhost}: ${dir} ${retcode}\r\n\$ "
 }
 
 [ -t 1 ] && PROMPT_COMMAND=prompt
