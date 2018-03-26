@@ -10,6 +10,9 @@ alias csi='csi -q'
 [[ "$(uname -s)" == "Linux" ]] && alias ls='ls --color=auto'
 [[ -f ~/bin/vcr.bash ]] && . ~/bin/vcr.bash
 
+shopt -s autocd
+set -o vi
+
 ######################################
 # PATH
 
@@ -61,4 +64,3 @@ prompt() {
 
 [ -t 1 ] && PROMPT_COMMAND=prompt
 
-set -o vi
