@@ -47,7 +47,6 @@ Plug 'rhysd/vim-grammarous'
 
 " buffer/file browsing etc.
 Plug 'ctrlpvim/ctrlp.vim'
-Plug 'jeetsukumaran/vim-buffergator'
 Plug 'justinmk/vim-dirvish'
 call plug#end()
 
@@ -113,6 +112,7 @@ imap <right> <nop>
 " Neat bindings
 
 nnoremap <leader><Tab> :b#<CR>
+nnoremap <leader>b :ls!<CR>:b 
 nnoremap <leader>d :w !diff % -<CR>
 nnoremap <leader>s :syntax sync fromstart<CR>
 nnoremap <leader>l :match ErrorMsg '\%>80v.\+'<CR>
