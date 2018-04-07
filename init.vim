@@ -89,6 +89,7 @@ au FileType plaintex   setlocal ts=2 sts=2 sw=2 et ai tw=79
 au FileType tex        setlocal ts=2 sts=2 sw=2 et ai tw=79
 au FileType vim        setlocal ts=2 sts=2 sw=2 et ai
 au FileType xml        setlocal ts=2 sts=2 sw=2 et ai
+au FileType cmake      setlocal ts=2 sts=2 sw=2 et ai
 
 au BufNewFile,BufReadPost *.ll setlocal filetype=llvm
 au BufNewFile,BufReadPost *.tex setlocal filetype=tex
@@ -112,7 +113,7 @@ imap <right> <nop>
 " Neat bindings
 
 nnoremap <leader><Tab> :b#<CR>
-nnoremap <leader>b :ls!<CR>:b 
+nnoremap <leader>b :ls<CR>:b 
 nnoremap <leader>d :w !diff % -<CR>
 nnoremap <leader>s :syntax sync fromstart<CR>
 nnoremap <leader>l :match ErrorMsg '\%>80v.\+'<CR>
