@@ -17,14 +17,13 @@ set nohls
 
 colors peachpuff
 
-
 """""""""""""""""""""""""""""""""""""""""""""""""""
 " Plugins
 
 call plug#begin()
 " syntax
 Plug 'alexander-matz/todo.vim'
-
+Plug 'alexander-matz/vim-llvm'
 Plug 'wavded/vim-stylus'
 Plug 'tpope/vim-fireplace', { 'for': 'clojure' }
 Plug 'lervag/vimtex', { 'for': ['tex'] }

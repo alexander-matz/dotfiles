@@ -36,6 +36,7 @@ export PATH=${PATH}
 maybe_source() { if [ -e $1 ]; then . $1; fi }
 
 maybe_source $HOME/local/Modules/3.2.10/init/bash
+maybe_source $HOME/.config/z.sh
 
 ######################################
 # TERMINAL
