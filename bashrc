@@ -6,12 +6,17 @@ export CLICOLOR=1
 export LSCOLORS=GxFxCxDxBxegedabagaced
 export HISTCONTROL=ignoreboth:erasedups
 
-alias csi='csi -q'
-[[ "$(uname -s)" == "Linux" ]] && alias ls='ls --color=auto'
 [[ -f ~/bin/vcr.bash ]] && . ~/bin/vcr.bash
 
 shopt -s autocd
 set -o vi
+
+#######################################
+# ALIASES / FUNCTIONS
+
+[[ "$(uname -s)" == "Linux" ]] && alias ls='ls --color=auto'
+alias csi='csi -q'
+abspath() { echo "$(cd "$(dirname "$1")" && pwd)/$(basename "$1")" ; }
 
 ######################################
 # PATH

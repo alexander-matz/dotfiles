@@ -43,6 +43,7 @@ Plug 'leafo/moonscript-vim'
 " workflow
 Plug 'easymotion/vim-easymotion'
 Plug 'rhysd/vim-grammarous'
+Plug 'justmao945/vim-clang'
 
 " buffer/file browsing etc.
 Plug 'ctrlpvim/ctrlp.vim'
