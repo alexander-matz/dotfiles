@@ -64,6 +64,9 @@ nnoremap <leader>d :w !diff % -<CR>
 nnoremap <leader>s :syntax sync fromstart<CR>
 nnoremap <Esc><Esc> :<C-u>nohlsearch<CR>
 
+map <C-L> <Esc>
+imap <C-L> <Esc>
+
 
 """""""""""""""""""""""""""""""""""""""""""""""""""
 " Plugin Settings
@@ -72,6 +75,8 @@ let s:uname = system("uname -s")
 if s:uname == "Darwin"
   let g:clang_library_path='/Applications/Xcode.app/Contents/Frameworks'
 endif
+let g:clang_auto=0
+let g:clang_diagsopt=''
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""
