@@ -16,6 +16,7 @@ set ignorecase
 set nohls
 
 colors peachpuff
+set ttimeoutlen=10
 
 """""""""""""""""""""""""""""""""""""""""""""""""""
 " Plugins
@@ -43,7 +44,7 @@ Plug 'leafo/moonscript-vim'
 " workflow
 Plug 'easymotion/vim-easymotion'
 Plug 'rhysd/vim-grammarous'
-Plug 'justmao945/vim-clang'
+" Plug 'justmao945/vim-clang'
 
 " buffer/file browsing etc.
 Plug 'ctrlpvim/ctrlp.vim'
@@ -63,6 +64,9 @@ nnoremap <leader>b :ls<CR>:b
 nnoremap <leader>d :w !diff % -<CR>
 nnoremap <leader>s :syntax sync fromstart<CR>
 nnoremap <Esc><Esc> :<C-u>nohlsearch<CR>
+
+map <C-L> <Esc>
+imap <C-L> <Esc>
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""
@@ -97,8 +101,7 @@ au FileType cabal      setlocal ts=2 sts=2 sw=2 et ai
 au FileType dart       setlocal ts=2 sts=2 sw=2 et ai
 au FileType d          setlocal ts=2 sts=2 sw=2 et ai
 au FileType todo       setlocal ts=2 sts=2 sw=2 et ai tw=79
-au FileType plaintex   setlocal ts=2 sts=2 sw=2 et ai tw=79
-au FileType tex        setlocal ts=2 sts=2 sw=2 et ai tw=79
+au FileType tex        setlocal ts=2 sts=2 sw=2 et ai tw=79 spell spelllang=en_US
 au FileType vim        setlocal ts=2 sts=2 sw=2 et ai
 au FileType xml        setlocal ts=2 sts=2 sw=2 et ai
 au FileType cmake      setlocal ts=2 sts=2 sw=2 et ai

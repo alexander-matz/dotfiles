@@ -33,6 +33,7 @@ path_add /opt/X11/bin
 path_add /{sbin,bin}
 path_add /usr/games
 path_add /usr/local/games
+path_add /var/lib/snapd/snap/bin
 export PATH=${PATH}
 
 #######################################
@@ -70,3 +71,4 @@ prompt() {
 
 [ -t 1 ] && PROMPT_COMMAND=prompt
 
+export MODULEPATH="$HOME/modules"
