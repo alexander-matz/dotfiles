@@ -113,3 +113,6 @@ au BufNewFile,BufReadPost *.ll setlocal filetype=llvm
 au BufNewFile,BufReadPost *.tex setlocal filetype=tex
 au BufNewFile,BufReadPost *.dt setlocal filetype=pug
 au BufNewFile,BufReadPost */build.boot setlocal filetype=clojure
+
+hi clear SpellBad
+hi SpellBad cterm=underline ctermfg=red
