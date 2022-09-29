@@ -21,9 +21,9 @@ set ttimeoutlen=10
 """""""""""""""""""""""""""""""""""""""""""""""""""
 " Plugins
 
-call plug#begin()
-
-call plug#end()
+" call plug#begin()
+"
+" call plug#end()
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""
