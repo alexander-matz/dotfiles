@@ -1,0 +1,5 @@
+altscreen
+startup_message off
+defscrollback 20000
+autodetach on
+hardstatus alwayslastline "%H %-Lw%{= BW}%50>%n%f* %t%{-}%+Lw%<"
