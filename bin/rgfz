@@ -1,0 +1,14 @@
+#!/bin/sh
+
+if [ "$#" -ne 1 ]; then
+  echo "usage: $0 pattern"
+  exit 1
+fi
+
+# if bat is not available, change the line containing preview to this
+#    --preview 'cat {1} \ # if bat is not available
+rg --with-filename --line-number --no-heading "$1" | \
+  fzf --delimiter : \
+    --preview 'bat --color=always {1} --highlight-line {2}' \
+    --preview-window 'up,60%,border-bottom,+{2}+3/3,~3' \
+    --bind 'enter:become(vim {1} +{2})'
