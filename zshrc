@@ -50,3 +50,4 @@ setopt HIST_IGNORE_DUPS
 
 set -o vi
 bindkey '^R' history-incremental-search-backward
+bindkey -v '^?' backward-delete-char
