@@ -1,6 +1,5 @@
 # vim: ts=4 sw=4 sts=4 et ai
-# Add prompt
-function() {
+function alex_prompt {
     local TIMER
     local ELAPSED
     local function __format_seconds() {
@@ -26,15 +25,17 @@ function() {
     }
     local function __format_git() {
         if git rev-parse --is-inside-work-tree >/dev/null 2>/dev/null ; then
-            echo "($(git rev-parse --abbrev-ref HEAD 2>/dev/null)) "
+            echo " ($(git rev-parse --abbrev-ref HEAD 2>/dev/null))"
+        else
+            echo ""
         fi
     }
 
     local __prompt_fn() {
         # preexec does not seem to be called so this doesn't work
-        #local TIME="$(__format_seconds ${ELAPSED})"
-        PROMPT="%F{green}%n%f@%m %F{blue}%~%f %(?..%F{red}!%?%f )$(__format_git)${TIME}
-${VIRTUAL_ENV_PROMPT}%# "
+        local TIME="$(__format_seconds ${ELAPSED})"
+        PROMPT="[%U%~%(?.. %F{red}!%?%f) ${TIME}$(__format_git)%u]
+%n@%m ${VIRTUAL_ENV_PROMPT}%# "
     }
 
     precmd_functions+=(__stop_timer __prompt_fn)
