@@ -41,8 +41,8 @@ function alex_prompt {
 
     local __prompt_fn() {
         local TIME="$(__format_seconds ${ELAPSED})"
-        PROMPT="[%U%F{blue}%~%f%(?.. %F{red}!%?%f) ${TIME}$(__format_git)%u]
-%n@%F{green}%m%f $(__venv)%# "
+        PROMPT="[%U%~%(?.. %F{red}!%?%f) ${TIME}$(__format_git)%u]
+%F{yellow}%n%f@%F{green}%m%f $(__venv)%# "
     }
 
     precmd_functions+=(__stop_timer __prompt_fn)
