@@ -31,11 +31,18 @@ function alex_prompt {
         fi
     }
 
+    local function __venv() {
+        if [[ -n "$VIRTUAL_ENV_PROMPT" ]]; then
+            echo "($VIRTUAL_ENV_PROMPT) "
+        else
+            echo ""
+        fi
+    }
+
     local __prompt_fn() {
-        # preexec does not seem to be called so this doesn't work
         local TIME="$(__format_seconds ${ELAPSED})"
-        PROMPT="[%U%~%(?.. %F{red}!%?%f) ${TIME}$(__format_git)%u]
-%n@%m ${VIRTUAL_ENV_PROMPT}%# "
+        PROMPT="[%U%F{blue}%~%f%(?.. %F{red}!%?%f) ${TIME}$(__format_git)%u]
+%n@%F{green}%m%f $(__venv)%# "
     }
 
     precmd_functions+=(__stop_timer __prompt_fn)
